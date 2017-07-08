@@ -1,6 +1,7 @@
 group 'org.tw.cicd'
 
 apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
