@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @RequestMapping("/")
     public String helloWorld() {
-        return "I am changing welcome message";
+        return "Demo 0001";
     }
     @RequestMapping("/index")
     public String helloWorldIndex() {
-        return "First Index Changed";
+        return "Demo Done";
     }
 }
