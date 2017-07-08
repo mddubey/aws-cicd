@@ -1,8 +1,9 @@
+sudo: true
 language: java
 jdk:
   - oraclejdk8
 install:
-  - pip install awscli
+  - sudo pip install awscli
 script:
 - "./gradlew clean build"
 - "aws s3 cp build/distributions/cicd.zip s3://travis-bucket-1/cicd.zip"
