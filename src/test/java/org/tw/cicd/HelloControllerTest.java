@@ -8,6 +8,6 @@ public class HelloControllerTest {
     @Test
     public void helloWorldTest() throws Exception {
         HelloController helloController = new HelloController();
-        assertEquals("Hell World", helloController.helloWorld());
+        assertEquals("Hello World", helloController.helloWorld());
     }
 }
