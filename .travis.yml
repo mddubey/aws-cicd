@@ -1,8 +1,13 @@
 language: java
 jdk:
   - oraclejdk8
+install:
+  - pip install awscli
 script:
 - "./gradlew clean build"
+- "aws s3 cp build/distributions/cicd.zip s3://travis-bucket-1/cicd.zip"
+- "aws elasticbeanstalk create-application-version --application-name ci-cd-1.0-SNAPSHOT --version-label $TRAVIS_JOB_ID --source-bundle S3Bucket='travis-bucket-1',S3Key='cicd.zip' --auto-create-application"
+- "aws elasticbeanstalk update-environment --environment-name Sample-env-1 --version-label $TRAVIS_JOB_ID"
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/

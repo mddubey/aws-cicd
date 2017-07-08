@@ -15,6 +15,12 @@ jar {
     version '1.0-SNAPSHOT'
 }
 
+distZip {
+    into(project.name) {
+        from '.'
+        include 'Procfile'
+    }
+}
 
 dependencies {
     compile"org.springframework.boot:spring-boot-starter-web"
